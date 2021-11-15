@@ -23,6 +23,9 @@
             "error",
             "single"
         ],
+        "comma-dangle": "off",
+        "arrow-body-style": "off",
+        "no-unused-vars": "warn",
         "no-useless-return": "warn",
         "arrow-parens": "off",
         "camelcase": "error",
