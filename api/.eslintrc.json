@@ -36,6 +36,8 @@
         "import/no-unresolved": "off",
         "spaced-comment": "off",
         "consistent-return": "off",
+        "prefer-const": "off",
+        "no-param-reassign": "off",
         "import/extensions": [
             "off",
             {
