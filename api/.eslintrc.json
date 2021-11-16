@@ -35,6 +35,7 @@
         "import/prefer-default-export": "off",
         "import/no-unresolved": "off",
         "spaced-comment": "off",
+        "consistent-return": "off",
         "import/extensions": [
             "off",
             {
