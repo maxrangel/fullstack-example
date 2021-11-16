@@ -6,6 +6,9 @@ import { userRouter } from './routes/user.routes';
 // Controllers
 import { globalErrorHandler } from './controllers/error.controller';
 
+// Utils
+import { AppError } from './utils/app-error.util';
+
 const app: Application = express();
 
 // Global middlewares
@@ -14,6 +17,10 @@ app.use(express.urlencoded({ limit: '10kb', extended: true }));
 
 // Routes handlers
 app.use('/api/v1/users', userRouter);
+
+app.all('*', (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
+});
 
 app.use(globalErrorHandler);
 
