@@ -17,4 +17,20 @@ model User {
   password String
   lastSeen DateTime @default(now()) @db.Timestamp(6)
   active   Boolean  @default(true)
+  posts    Post[]
+}
+
+model Post {
+  id      Int       @id @default(autoincrement())
+  caption String
+  author  User      @relation(fields: [userId], references: [id])
+  userId  Int
+  PostImg PostImg[]
+}
+
+model PostImg {
+  id      Int    @id @default(autoincrement())
+  imgPath String
+  post    Post   @relation(fields: [postId], references: [id])
+  postId  Int
 }

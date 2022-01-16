@@ -1,6 +1,8 @@
 // Utils
 // import { AppError } from '../utils/app-error.util';
 
+import { AppError } from '../utils/app-error.util';
+
 const sendErrorDev = (err, req, res) => {
   // A) API
   if (req.originalUrl.startsWith('/api')) {
@@ -61,6 +63,14 @@ const sendErrorProd = (err, req, res) => {
   });
 };
 
+const handleDuplicateUsernameOrEmail = () => {
+  return new AppError('Username and/or email are taken', 400);
+};
+
+const handleNotFoundRecord = () => {
+  return new AppError('Data not found or removed', 404);
+};
+
 const globalErrorHandler = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
@@ -70,6 +80,9 @@ const globalErrorHandler = (err, req, res, next) => {
   } else if (process.env.NODE_ENV === 'production') {
     let error = { ...err };
     error.message = err.message;
+
+    if (error.code === 'P2002') error = handleDuplicateUsernameOrEmail();
+    if (error.code === 'P2025') error = handleNotFoundRecord();
 
     sendErrorProd(error, req, res);
   }

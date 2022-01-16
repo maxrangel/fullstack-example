@@ -14,7 +14,16 @@ export const signupValidators = [
   body('password')
     .trim()
     .isLength({ min: 4, max: 20 })
+    .isAlphanumeric()
     .withMessage('Password must be between 4 and 20 characters'),
+];
+
+export const updateUserValidators = [
+  body('username')
+    .isString()
+    .notEmpty()
+    .isLength({ min: 3 })
+    .withMessage('Username must be at least 3 characters long'),
 ];
 
 export const validateRequest = catchAsync(
