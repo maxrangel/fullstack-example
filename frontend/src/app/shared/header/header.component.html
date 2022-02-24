@@ -1,1 +1,6 @@
-<p>header works!</p>
+<h3 routerLink="/">InstaPic</h3>
+
+<button (click)="onToggleMenu()" nbButton size="small" shape="semi-round">
+  <nb-icon icon="menu-outline" status="basic"></nb-icon>
+  {{ showMenu ? 'Hide menu' : 'Show menu' }}
+</button>
