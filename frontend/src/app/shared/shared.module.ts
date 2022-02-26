@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
 import {
   NbButtonModule,
   NbCardModule,
@@ -9,7 +8,9 @@ import {
   NbMenuModule,
   NbUserModule,
 } from '@nebular/theme';
+import { HeaderComponent } from './header/header.component';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [HeaderComponent, SidebarMenuComponent],
@@ -21,6 +22,7 @@ import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
     NbLayoutModule,
     NbCardModule,
     NbUserModule,
+    RouterModule,
   ],
   exports: [HeaderComponent, SidebarMenuComponent],
 })

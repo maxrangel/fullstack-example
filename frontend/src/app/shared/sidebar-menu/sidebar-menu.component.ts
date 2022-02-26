@@ -11,18 +11,17 @@ export class SidebarMenuComponent implements OnInit {
     {
       title: 'Profile',
       icon: 'person-outline',
-    },
-    {
-      title: 'Change Password',
-      icon: 'lock-outline',
+      link: 'profile',
     },
     {
       title: 'Privacy Policy',
       icon: { icon: 'checkmark-outline', pack: 'eva' },
+      link: '',
     },
     {
       title: 'Logout',
       icon: 'unlock-outline',
+      link: 'auth',
     },
   ];
   constructor() {}

@@ -1,0 +1,13 @@
+.login {
+  width: 50%;
+  height: 40vh;
+  margin: 0 auto;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    height: 100%;
+  }
+}
